@@ -22,8 +22,8 @@ avatar_image: /img/profile_picture.JPG
 
 #-------------------------------
 # Contact links
-linkedln: "https://linkedln.com/#" # Add your linkedln handle
-github: "https://github.com/#"  # Add your github handle
+linkedln: "www.linkedin.com/in/lucas-paolantonio-90a99b162" # Add your linkedln handle
+github: "https://github.com/Lucas-Paolantonio"  # Add your github handle
 
 paginate: 6
 paginate_path: "/page/:num"
