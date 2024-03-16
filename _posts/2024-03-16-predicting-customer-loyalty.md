@@ -103,9 +103,9 @@ import pandas as pd
 import pickle
 
 # import required data tables
-loyalty_scores = ...
-customer_details = ...
-transactions = ...
+loyalty_scores = pd.read_excel('data/grocery_database.xlsx', sheet_name = "loyalty_scores")
+customer_details = pd.read_excel('data/grocery_database.xlsx', sheet_name = "customer_details")
+transactions = pd.read_excel('data/grocery_database.xlsx', sheet_name = "transactions")
 
 # merge loyalty score data and customer details data, at customer level
 data_for_regression = pd.merge(customer_details, loyalty_scores, how = "left", on = "customer_id")
@@ -116,7 +116,7 @@ sales_summary = transactions.groupby("customer_id").agg({"sales_cost" : "sum",
                                                          "transaction_id" : "nunique",
                                                          "product_area_id" : "nunique"}).reset_index()
 
-# rename columns for clarity
+# rename columns
 sales_summary.columns = ["customer_id", "total_sales", "total_items", "transaction_count", "product_area_count"]
 
 # engineer an average basket value column for each customer
@@ -147,9 +147,9 @@ After this data pre-processing in Python, we have a dataset for modelling that c
 | **Variable Name** | **Variable Type** | **Description** |
 |---|---|---|
 | loyalty_score | Dependent | The % of total grocery spend that each customer allocates to ABC Grocery vs. competitors |
-| distance_from_store | Independent | "The distance in miles from the customers home address, and the store" |
+| distance_from_store | Independent | The distance in miles from the customers home address to the store |
 | gender | Independent | The gender provided by the customer |
-| credit_score | Independent | The customers most recent credit score |
+| credit_score | Independent | The customer's most recent credit score |
 | total_sales | Independent | Total spend by the customer in ABC Grocery within the latest 6 months |
 | total_items | Independent | Total products purchased by the customer in ABC Grocery within the latest 6 months |
 | transaction_count | Independent | Total unique transactions made by the customer in ABC Grocery within the latest 6 months |
