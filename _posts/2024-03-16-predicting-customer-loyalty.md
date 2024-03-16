@@ -56,14 +56,14 @@ Our testing found that the Random Forest had the highest predictive accuracy.
 <br>
 **Metric 1: Adjusted R-Squared (Test Set)**
 
-* <span style="color: darkgreen;">Random Forest = 0.955</span>
+* <span style="color: ligthgreen;">Random Forest = 0.955</span>
 * Decision Tree = 0.886
 * Linear Regression = 0.754
 
 <br>
 **Metric 2: R-Squared (K-Fold Cross Validation, k = 4)**
 
-* <span style="color: darkgreen;">Random Forest = 0.925</span>
+* <span style="color: ligthgreen;">Random Forest = 0.925</span>
 * Decision Tree = 0.871
 * Linear Regression = 0.853
 
