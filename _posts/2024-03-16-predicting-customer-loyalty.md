@@ -222,7 +222,13 @@ For Linear Regression we have certain data preprocessing steps that need to be a
 <br>
 ##### Missing Values
 
-The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows
+The number of missing values in the data was extremely low, so instead of applying any imputation (i.e. mean, most common value) we will just remove those rows.
+
+    * distance_from_store       2
+    * gender                    3
+    * credit_score              2
+
+We will remove or drop every row where at least one column has a missing value by using the key word 'any'.
 
 ```python
 
