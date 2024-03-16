@@ -262,7 +262,7 @@ Based on this investigation, we see some *max* column values for several variabl
 
 This is for columns *distance_from_store*, *total_sales*, and *total_items*
 
-For example, the median *distance_to_store* is 1.645 miles, but the maximum is over 44 miles!
+For example, the median *distance_from_store* is 1.65 miles, but the maximum is over 44 miles!
 
 Because of this, we apply some outlier removal in order to facilitate generalisation across the full dataset.
 
@@ -290,6 +290,7 @@ for column in outlier_columns:
     data_for_model.drop(outliers, inplace = True)
 
 ```
+
 
 <br>
 ##### Split Out Data For Modelling
@@ -534,7 +535,9 @@ The coefficient value for each of the input variables, along with that of the in
 
 For each input variable, the coefficient value we see above tells us, with *everything else staying constant* how many units the output variable (loyalty score) would change with a *one unit change* in this particular input variable.
 
-To provide an example of this - in the table above, we can see that the *distance_from_store* input variable has a coefficient value of -0.201.  This is saying that *loyalty_score* decreases by 0.201 (or 20% as loyalty score is a percentage, or at least a decimal value between 0 and 1) for *every additional mile* that a customer lives from the store.  This makes intuitive sense, as customers who live a long way from this store, most likely live near *another* store where they might do some of their shopping as well, whereas customers who live near this store, probably do a greater proportion of their shopping at this store...and hence have a higher loyalty score!
+To provide an example of this, we can see that the *distance_from_store* input variable has a coefficient value of -0.201 
+
+This is saying that *loyalty_score* decreases by 0.201 (or 20% as loyalty score is a percentage, or at least a decimal value between 0 and 1) for *every additional mile* that a customer lives from the store.  This makes intuitive sense, as customers who live a long way from this store, most likely live near *another* store where they might do some of their shopping as well, whereas customers who live near this store, probably do a greater proportion of their shopping at this store...and hence have a higher loyalty score!
 
 ___
 <br>
@@ -1135,12 +1138,14 @@ In the following code, we will
 import pandas as pd
 import pickle
 
-# import customers for scoring
-to_be_scored = ...
+# Import customers for scoring
 
-# import model and model objects
-regressor = ...
-one_hot_encoder = ...
+to_be_scored = pickle.load(open('Data/abc_regression_scoring.p', 'rb'))
+
+# Import model and model objects
+
+regressor = pickle.load(open('Data/random_forest_regression_model.p', 'rb'))
+one_hot_encoder = pickle.load(open('Data/random_forest_regression_ohe.p', 'rb'))
 
 # drop unused columns
 to_be_scored.drop(["customer_id"], axis = 1, inplace = True)
