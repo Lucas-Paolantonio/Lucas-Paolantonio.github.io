@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding Alcohol Product Relationships Using Association Rule Learning
+title: Uncovering Purchase Patterns: Enhancing Marketing Strategy through Association Rule Learning
 image: "/posts/association-rules-title-img.png"
 tags: [Association Rule Learning, Python]
 ---
